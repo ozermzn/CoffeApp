@@ -1,0 +1,51 @@
+<div class="container-fluid d-flex justify-content-center" *ngIf="!loading">
+  <div class="image-details">
+    <img
+      class="img-fluid rounded"
+      src="../../../assets/img/{{ product?.imageUrl }}"
+      alt=""
+    />
+  </div>
+  <div class="body">
+    <h1 class="text-warning mb-3">{{ product?.name }}</h1>
+    <div class="product-details mb-5">
+      <h4 class="mb-3">{{ product?.price }} ₺</h4>
+    </div>
+    <div class="product-price">
+      <button
+        class="btn btn-success w-100"
+        type="button"
+        id="addBtn"
+        (click)="addBasket(product)"
+      >
+        Buy
+        <i class="fa-solid fa-cart-shopping ms-3"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="products" *ngIf="!loading">
+  <div class="card" *ngFor="let item of products">
+    <img src="../../assets/img/{{ item.imageUrl }}" class="img-fluid" alt="" />
+    <div class="card-body">
+      <p class="card-text">
+        <span class="card-price">{{ item.price }} ₺</span>
+      </p>
+      <a routerLink="/products/{{ item.id }}" class="btn btn-warning"
+        >See Feature</a
+      >
+    </div>
+  </div>
+</div>
+<div class="load fa-3x" *ngIf="loading">
+  <i
+    class="fa-solid fa-cog fa-spin"
+    style="--fa-animation-direction: reverse"
+  ></i>
+  <i class="fa-solid fa-cog fa-spin"></i>
+  <i
+    class="fa-solid fa-cog fa-spin"
+    style="--fa-animation-direction: reverse"
+  ></i>
+</div>

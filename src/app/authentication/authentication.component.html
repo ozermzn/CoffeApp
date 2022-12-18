@@ -1,0 +1,75 @@
+<div class="container-fluid" *ngIf="!loading">
+  <div class="row">
+    <div class="col-12" id="loginPage">
+      <form #form="ngForm" class="mb-3" (ngSubmit)="handleAuth(form)">
+        <div class="alert alert-danger" *ngIf="error">
+          {{ error }}
+        </div>
+        <div class="Login">
+          <img
+            src="../../assets/img/barista.png"
+            class="img-fluid text-center"
+            style="width: 7rem"
+            alt=""
+          />
+          <h2 *ngIf="isLogin">Login</h2>
+          <h2 *ngIf="!isLogin">Register</h2>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="email"
+            name="email"
+            [(ngModel)]="model.email"
+            minlength="10"
+            #email="ngModel"
+            class="form-control"
+            id="email"
+            placeholder="name@example.com"
+          />
+          <label for="floatingInput">Email address</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="password"
+            name="password"
+            [(ngModel)]="model.password"
+            #password="ngModel"
+            minlength="5"
+            class="form-control"
+            id="password"
+            placeholder="Password"
+          />
+          <label for="floatingPassword">Password</label>
+        </div>
+        <button type="submit" class="btn btn-login w-100" *ngIf="isLogin">
+          Login
+        </button>
+        <button type="submit" class="btn btn-login w-100" *ngIf="!isLogin">
+          Register
+        </button>
+      </form>
+      <button type="submit" class="btn btn-register w-100" (click)="logOrReg()">
+        <i class="fa-solid fa-right-left"></i>
+      </button>
+    </div>
+    <div class="col-12 login hide" id="loginSuccess">
+      <div class="successful">
+        <div class="succes-body">
+          <h3>Login successful. <i class="fa-regular fa-circle-check"></i></h3>
+          <p class="login-text">Thanks for coming again.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="load fa-3x" *ngIf="loading">
+  <i
+    class="fa-solid fa-cog fa-spin"
+    style="--fa-animation-direction: reverse"
+  ></i>
+  <i class="fa-solid fa-cog fa-spin"></i>
+  <i
+    class="fa-solid fa-cog fa-spin"
+    style="--fa-animation-direction: reverse"
+  ></i>
+</div>

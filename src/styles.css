@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Sunflower", sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+}
+.form-control.ng-invalid.ng-touched.ng-dirty {
+  border: 2px solid #b73e3e;
+  color: #b73e3e;
+}
+.form-control.ng-valid.ng-touched {
+  color: #5f8d4e;
+  border: 2px solid #5f8d4e;
+}
+.load {
+  padding: 20rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  background-color: black;
+}
+.load i {
+  margin: 0 10px;
+  color: #eee;
+}
+
+@media screen and (max-width: 800px) {
+  .load {
+    padding: 1rem !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+  }
+}

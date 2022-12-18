@@ -1,0 +1,109 @@
+<div class="containerr">
+  <div class="navbarr">
+    <div>
+      <ul class="navbar-ul hide" #navbarShowUl>
+        <li class="nav-item">
+          <a routerLink="/home" class="nav-a"> Home </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/products" class="nav-a">Products</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <!-- Baskets -->
+      <ul class="navbar-ul">
+        <li class="nav-item me-5" id="basket">
+          <a class="nav-a" data-bs-toggle="modal" data-bs-target="#baskets"
+            ><i class="fa-solid fa-cart-shopping"></i
+          ></a>
+        </li>
+      </ul>
+    </div>
+    <div class="logo">
+      <a
+        type="button"
+        class="nav-link"
+        id="hideButton"
+        (click)="hideOrShow(navbarShowUl, navbarShowUl2)"
+      >
+        <img src="../../assets/img/logo.png" alt="" />
+      </a>
+    </div>
+    <div>
+      <div>
+        <ul class="navbar-ul hide" #navbarShowUl2>
+          <li class="nav-item"><a routerLink="/blog" class="nav-a">Blog</a></li>
+          <li class="nav-item">
+            <a routerLink="/auth" class="nav-a" *ngIf="!isAuth">Login</a>
+          </li>
+          <li class="nav-item">
+            <a
+              routerLink="/home"
+              (click)="logout()"
+              class="nav-a"
+              *ngIf="isAuth"
+              >Logout</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div
+    class="modal fade"
+    id="baskets"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Basket</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <!-- Table for order -->
+        <div class="modal-body">
+          <table class="table table-dark table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Product</th>
+                <th scope="col">Price</th>
+                <th scope="col">Amount</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let b of baskets">
+              <tr>
+                <th>{{ b.name }}</th>
+                <td>{{ b.price }} ₺</td>
+                <td>
+                  <input
+                    type="number"
+                    class="form-control"
+                    value="{{ b.quantity }}"
+                    style="width: 60px"
+                  />
+                </td>
+                <td>
+                  <button class="btn btn-danger" type="button">Remove</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+            Close
+          </button>
+          <button type="button" class="btn btn-success">Complete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

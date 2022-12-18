@@ -1,0 +1,76 @@
+<div class="container-fluid">
+  <div class="row menu" *ngIf="!loading">
+    <div class="col-3">
+      <ul class="cards">
+        <li *ngFor="let item of categories">
+          <a routerLink="/categories/{{ item.id }}">{{ item.name }}</a>
+        </li>
+      </ul>
+      <ul class="cards">
+        <h4 class="ms-4">Creat</h4>
+        <li>
+          <a routerLink="/products/create-product" *ngIf="isAdmin && isAuth"
+            >Add Product & Category</a
+          >
+          <a
+            routerLink="/perm"
+            *ngIf="(!isAdmin && !isAuth) || (!isAdmin && isAuth)"
+            >Add Product & Category</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-9">
+      <div class="row" *ngFor="let item of products">
+        <div class="col-3">
+          <img
+            src="../../assets/img/{{ item.imageUrl }}"
+            class="img-fluid rounded"
+            alt=""
+          />
+        </div>
+        <div class="col-8">
+          <div class="cards">
+            <h4 class="title-products">{{ item.name }}</h4>
+            <div class="product-detail">
+              <p class="product-text">
+                {{ item.description }}
+              </p>
+              <div class="b-p">
+                <p class="product-price" *ngIf="item.isActive">
+                  {{ item.price }}₺
+                </p>
+                <p class="text-muted" *ngIf="!item.isActive">Coming soon!</p>
+                <button
+                  class="btn btn-outline-success"
+                  id="addBtn"
+                  *ngIf="item.isActive"
+                  (click)="addBasket(item)"
+                >
+                  Add
+                </button>
+                <a
+                  routerLink="/products/{{ item.id }}"
+                  class="btn btn-outline-warning details"
+                  >Details</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="load fa-3x" *ngIf="loading">
+    <i
+      class="fa-solid fa-cog fa-spin"
+      style="--fa-animation-direction: reverse"
+    ></i>
+    <i class="fa-solid fa-cog fa-spin"></i>
+    <i
+      class="fa-solid fa-cog fa-spin"
+      style="--fa-animation-direction: reverse"
+    ></i>
+  </div>
+</div>

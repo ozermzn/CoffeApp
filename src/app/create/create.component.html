@@ -1,0 +1,134 @@
+<div class="container-fluid">
+  <div id="swap" class="d-flex" *ngIf="swapProduct">
+    <h2 class="text-white">Add Product</h2>
+    <button type="button" (click)="swap()" class="btn text-success ms-3">
+      <i class="fa-solid fa-right-left"></i>
+    </button>
+  </div>
+  <form #form="ngForm" (ngSubmit)="saveProduct()" *ngIf="swapProduct">
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        name="name"
+        required
+        minlength="3"
+        [(ngModel)]="model.name"
+        #name="ngModel"
+        class="form-control"
+        id="name"
+        placeholder="name@example.com"
+      />
+      <label for="name">Name</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <textarea
+        type="text"
+        [(ngModel)]="model.description"
+        required
+        minlength="10"
+        name="description"
+        #description="ngModel"
+        class="form-control"
+        id="description"
+        placeholder="name@example.com"
+      ></textarea>
+      <label for="description">Description</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input
+        type="number"
+        min="0"
+        max="10000"
+        name="price"
+        class="form-control"
+        [(ngModel)]="model.price"
+        required
+        #price="ngModel"
+        id="price"
+        placeholder="name@example.com"
+      />
+      <label for="price">Price</label>
+    </div>
+    <div class="mb-3 form-floating">
+      <input
+        type="text"
+        name="imageUrl"
+        class="form-control"
+        [(ngModel)]="model.imageUrl"
+        required
+        #imageUrl="ngModel"
+        id="imageUrl"
+        placeholder="name@example.com"
+      />
+      <label for="imageUrl" class="">Image</label>
+    </div>
+    <div class="mb-3">
+      <select
+        name="categoryId"
+        #categoryId="ngModel"
+        required
+        [(ngModel)]="model.categoryId"
+        id="category"
+        class="form-select"
+      >
+        <option value="0">Select</option>
+
+        <option *ngFor="let item of categories" value="{{ item.id }}">
+          {{ item.name }}
+        </option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="isActive" class="form-label text-white me-3"
+        >İs active?</label
+      >
+      <input
+        [(ngModel)]="model.isActive"
+        #isActive
+        required
+        name="isActive"
+        id="isActive"
+        type="checkbox"
+        class="form-check-input"
+      />
+    </div>
+    <button type="submit" class="btn btn-success ms-4">Add to list</button>
+  </form>
+  <div id="swap" class="d-flex" *ngIf="!swapProduct">
+    <h2 class="text-white">Add Category</h2>
+    <button type="button" (click)="swap()" class="btn text-warning ms-3">
+      <i class="fa-solid fa-right-left"></i>
+    </button>
+  </div>
+  <form #form="ngForm" (ngSubmit)="saveCategory(form)" *ngIf="!swapProduct">
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        name="name"
+        required
+        minlength="3"
+        [(ngModel)]="model.name"
+        #name="ngModel"
+        class="form-control"
+        id="name"
+        placeholder="name@example.com"
+      />
+      <label for="name">Name</label>
+    </div>
+    <button
+      type="submit"
+      [disabled]="form.invalid"
+      class="btn btn-outline-warning ms-4"
+    >
+      Add Category
+    </button>
+  </form>
+  <div class="image-category">
+    <img
+      src="../../assets/img/img-category.webp"
+      alt=""
+      class="img-fluid rounded"
+    />
+  </div>
+</div>

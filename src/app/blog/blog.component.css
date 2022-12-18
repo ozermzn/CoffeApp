@@ -1,0 +1,34 @@
+.container-fluid {
+  text-align: center;
+  background-color: black;
+}
+.home {
+  font-size: 25px;
+}
+h1 {
+  text-align: center;
+  color: #000;
+  background-color: #eee;
+}
+#img {
+  width: 100% !important;
+  height: 300px;
+  object-fit: cover;
+}
+.p-text {
+  padding: 50px 50px;
+  font-size: 1.2rem;
+}
+.img-h img {
+  width: 100px;
+}
+#foot-img {
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 720px) {
+  #foot-img {
+    width: 50%;
+  }
+}

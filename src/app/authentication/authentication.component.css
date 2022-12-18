@@ -1,0 +1,79 @@
+.container-fluid {
+  width: 100%;
+  height: 90vh;
+  padding: 15rem;
+  background: url(../../assets/img/img-category.webp);
+  background-position: center;
+  background-size: cover;
+}
+.col-12.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.col-8 {
+  padding: 3rem;
+
+  border-radius: 20px;
+}
+
+.btn-login {
+  background-color: rgba(8, 158, 33, 0.8);
+  color: #eee;
+}
+.btn-register {
+  background-color: rgba(255, 255, 255, 0.7);
+  color: rgb(8, 158, 33);
+}
+.btn-login:hover {
+  background-color: rgba(255, 255, 255, 0.603);
+  color: rgb(8, 158, 33);
+}
+.btn-register:hover {
+  color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 255, 255, 1);
+}
+.Login {
+  display: flex;
+  color: #eee;
+  gap: 40px;
+}
+.Login h2 {
+  padding: 1rem;
+  border-radius: 50px 0 50px 0;
+  align-self: center;
+  background-color: rgba(8, 158, 33, 0.6);
+}
+.login.hide {
+  display: none;
+}
+.hide {
+  display: none;
+}
+.successful {
+  padding: 2rem;
+  background-color: rgba(29, 143, 38, 0.6);
+  width: 500px;
+  border-radius: 15px;
+}
+.succes-body {
+  background-color: white;
+  border-radius: inherit;
+  text-align: center;
+  color: rgb(29, 143, 38);
+}
+.succes-body h3 {
+  padding: 1rem;
+}
+.succes-body .login-text {
+  color: inherit;
+  padding: 1rem;
+}
+
+@media screen and (max-width: 800px) {
+  .container-fluid {
+    padding: 10rem 4rem;
+  }
+}

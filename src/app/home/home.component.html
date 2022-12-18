@@ -1,0 +1,51 @@
+<div class="container-fluid" *ngIf="!loading">
+  <div class="row">
+    <div class="col-8 col">
+      <img src="../../assets/img/home-2.jpg" class="img-fluid rounded" alt="" />
+      <p class="text-p">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero
+        repellendus porro odio autem fugiat laboriosam nostrum numquam dolorum
+        neque ea error maiores sequi temporibus, quisquam dicta illum assumenda
+        vel animi?
+      </p>
+    </div>
+    <div class="col col-4">
+      <ul>
+        <li>
+          <img src="../../assets/img/home-3.jpg" class="img-fluid" alt="" />
+        </li>
+        <li>
+          <img src="../../assets/img/home-1.jpg" class="img-fluid" alt="" />
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="products">
+    <div class="card" *ngFor="let item of products">
+      <img
+        src="../../assets/img/{{ item.imageUrl }}"
+        class="img-fluid"
+        alt=""
+      />
+      <div class="card-body">
+        <p class="card-text">
+          <span class="card-price">{{ item.price }} ₺</span>
+        </p>
+        <a routerLink="/products/{{ item.id }}" class="btn btn-warning"
+          >See Feature</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+<div class="load fa-3x" *ngIf="loading">
+  <i
+    class="fa-solid fa-cog fa-spin"
+    style="--fa-animation-direction: reverse"
+  ></i>
+  <i class="fa-solid fa-cog fa-spin"></i>
+  <i
+    class="fa-solid fa-cog fa-spin"
+    style="--fa-animation-direction: reverse"
+  ></i>
+</div>
